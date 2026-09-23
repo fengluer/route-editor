@@ -117,7 +117,9 @@ export function Sidebar({ issues }: Props): JSX.Element {
       <div style={{ flex: 1, overflow: 'auto', marginTop: 8 }}>
         {pane === 'event' ? (
           <Tree
+            className="flat-tree"
             blockNode
+            indent={0}
             defaultExpandAll
             selectedKeys={selectedEventId ? [`event-${selectedEventId}`] : []}
             treeData={treeData}

@@ -119,6 +119,11 @@ img {
   background: #f6f6f6;
 }
 
+.flat-tree .ant-tree-indent,
+.flat-tree .ant-tree-indent-unit {
+  width: 0;
+}
+
 .story-panel {
   height: 100%;
   display: flex;
