@@ -1,0 +1,274 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+}
+
+* {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+input,
+textarea,
+[contenteditable='true'] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
+.react-flow {
+  width: 100%;
+  height: 100%;
+}
+
+.flow-card {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 8px 10px;
+  border: 2px solid;
+  border-radius: 8px;
+  background: #fff;
+  cursor: grab;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.flow-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.flow-thumbs {
+  position: relative;
+  flex: 0 0 64px;
+  width: 64px;
+  height: 64px;
+}
+
+.flow-thumb {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  background: #f6f6f6;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.flow-thumb-more {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  padding: 0 4px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.62);
+  color: #fff;
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.resource-preview {
+  display: block;
+  width: 100%;
+  height: 160px;
+  margin-bottom: 8px;
+  object-fit: contain;
+  background: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+}
+
+.resource-preview.empty {
+  display: grid;
+  place-items: center;
+  color: #999;
+  font-size: 12px;
+}
+
+.resource-pick-img {
+  width: 22px;
+  height: 22px;
+  object-fit: cover;
+  border-radius: 2px;
+  vertical-align: middle;
+}
+
+.resource-tree-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.resource-tree-thumb {
+  width: 18px;
+  height: 18px;
+  object-fit: cover;
+  border-radius: 3px;
+  background: #f6f6f6;
+}
+
+.story-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #fafafa;
+}
+
+.story-head {
+  flex: 0 0 auto;
+  padding: 12px 12px 8px;
+  font-weight: 700;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.story-meta,
+.story-hint,
+.story-empty {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #888;
+}
+
+.story-hint {
+  padding: 16px 12px;
+}
+
+.story-flow {
+  flex: 1;
+  overflow: auto;
+  padding: 12px 10px 20px;
+}
+
+.story-step {
+  display: flex;
+  gap: 8px;
+}
+
+.story-rail {
+  width: 14px;
+  flex: 0 0 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.story-dot {
+  width: 10px;
+  height: 10px;
+  margin-top: 14px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+
+.story-line {
+  width: 2px;
+  flex: 1;
+  min-height: 16px;
+  margin: 4px 0;
+  background: #d9d9d9;
+}
+
+.story-card {
+  flex: 1;
+  min-width: 0;
+  margin-bottom: 8px;
+  padding: 8px;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.story-card.current {
+  box-shadow: 0 0 0 2px rgba(22, 119, 255, 0.08);
+}
+
+.story-kind {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.story-type {
+  display: inline-block;
+  padding: 0 6px;
+  border-radius: 999px;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 700;
+}
+
+.story-event {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  width: 100%;
+  margin: 0 0 4px;
+  padding: 4px 6px;
+  border: 0;
+  border-radius: 4px;
+  background: #fafafa;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.story-event span:last-child {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.story-event.on {
+  background: #e6f4ff;
+}
+
+.story-empty {
+  padding: 2px 0 4px;
+}
+
+.flow-kind {
+  font-size: 11px;
+  line-height: 16px;
+  flex: 0 0 auto;
+}
+
+.flow-title {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 17px;
+  max-height: 34px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.flow-sub {
+  font-size: 11px;
+  line-height: 16px;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,107 @@
+{
+  "name": "route-editor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "散步路线事件编辑器",
+  "author": "路线编辑器",
+  "type": "module",
+  "main": "./out/main/index.js",
+  "scripts": {
+    "start": "electron-vite dev",
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "dist": "electron-vite build && node scripts/dist-win.mjs",
+    "dist:mac": "node scripts/dist-mac.mjs",
+    "preview": "electron-vite preview",
+    "typecheck": "tsc -p tsconfig.node.json --noEmit && tsc -p tsconfig.web.json --noEmit",
+    "roundtrip": "tsx src/main/roundtrip-check.ts"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0"
+  },
+  "devDependencies": {
+    "@ant-design/icons": "^6.3.4",
+    "@types/dagre": "^0.7.54",
+    "@types/node": "^22.20.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^4.5.2",
+    "@xyflow/react": "^12.11.6",
+    "antd": "^6.6.3",
+    "dagre": "^0.8.5",
+    "electron": "^37.2.6",
+    "electron-builder": "^26.15.3",
+    "electron-vite": "^5.0.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tsx": "^4.23.13",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.6",
+    "zundo": "^2.3.0",
+    "zustand": "^5.0.15"
+  },
+  "build": {
+    "appId": "local.route.editor",
+    "productName": "路线编辑器",
+    "executableName": "RouteEditor",
+    "npmRebuild": false,
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "out/**/*",
+      "package.json",
+      "node_modules/**/*",
+      "!node_modules/.bin/**",
+      "!**/{test,tests,__tests__,example,examples}/**",
+      "!**/*.{md,map,ts,tsx}"
+    ],
+    "extraResources": [
+      {
+        "from": "DataTable/walkEvent_散步事件表.xlsx",
+        "to": "DataTable/walkEvent_散步事件表.xlsx"
+      },
+      {
+        "from": "DataTable/walkOption_散步事件选项表.xlsx",
+        "to": "DataTable/walkOption_散步事件选项表.xlsx"
+      },
+      {
+        "from": "DataTable/WalkEventResult_散步事件结果表.xlsx",
+        "to": "DataTable/WalkEventResult_散步事件结果表.xlsx"
+      },
+      {
+        "from": "DataTable/walkFeedback_散步反馈内容表.xlsx",
+        "to": "DataTable/walkFeedback_散步反馈内容表.xlsx"
+      },
+      {
+        "from": "DataTable/walkResource_散步场景特殊素材.xlsx",
+        "to": "DataTable/walkResource_散步场景特殊素材.xlsx"
+      },
+      {
+        "from": "DataTable/WalkRoute_基础路线配置表.xlsx",
+        "to": "DataTable/WalkRoute_基础路线配置表.xlsx"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "signAndEditExecutable": false
+    },
+    "mac": {
+      "identity": null,
+      "category": "public.app-category.productivity",
+      "target": ["dmg", "zip"],
+      "artifactName": "RouteEditor-${version}-mac.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "allowElevation": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "路线编辑器",
+      "artifactName": "RouteEditor-Setup-${version}.${ext}",
+      "uninstallDisplayName": "路线编辑器"
+    }
+  }
+}
