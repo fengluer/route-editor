@@ -29,6 +29,8 @@ const packed = await run(process.execPath, [
   path.join(root, "node_modules", "electron-builder", "cli.js"),
   "--mac",
   "--universal",
+  "--publish",
+  "never",
   ...process.argv.slice(2),
 ]);
 process.exit(packed);

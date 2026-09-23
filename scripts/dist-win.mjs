@@ -40,7 +40,7 @@ function runBuilder() {
   return new Promise((resolve) => {
     const child = spawn(
       process.execPath,
-      [path.join(root, "node_modules", "electron-builder", "cli.js"), "--win", "nsis"],
+      [path.join(root, "node_modules", "electron-builder", "cli.js"), "--win", "nsis", "--publish", "never"],
       { cwd: root, stdio: "inherit", env: process.env },
     );
     child.on("close", (code) => resolve(code ?? 1));
